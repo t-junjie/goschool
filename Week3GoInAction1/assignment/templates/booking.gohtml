@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Every Dental Clinic</title>
+</head>
+<body>
+<h1>Book new appointment</h1>
+{{template "greetings" .User}}
+<!-- check if logged in and form not posted yet-->
+{{if and .User.Username (not .BookingStatus)}}
+
+<h4>Please enter the date and time you would like book the appointment on.</h4>
+
+<form method="post">
+    <label for ="date">Desired Appointment Date:</label>
+    <input type="text" name="date" placeholder="YYYYMMDD"><br>
+
+    <label for ="time">Desired Appointment Time:</label>
+    <input type="text" name="time" placeholder="1300"><br>
+
+    <label for ="name">Doctor name:</label>
+    <input type="text" name="name" placeholder="ANG BENG CHONG"><br>
+
+    <input type="submit">
+</form>
+{{end}}
+{{if and .User.Username .BookingStatus}}
+
+Appointment booked
+<br>
+<h4>Go to <a href="/home">user page</a></h4>
+
+{{end}}
+</body>
+<!--Show availaibility if form submitted-->
+</html>

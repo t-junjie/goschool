@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Every Dental Clinic: Admin Page</title>
+</head>
+<body>
+<h1>Welcome to the admin page</h1>
+{{template "greetings" .User}}
+{{if .User.Username}}
+<h2><a href="/chooseDoctor">View a doctor's appointment</a></h2>
+<h2><a href="/choosePatient">View a patient's appointment history</a></h2>
+<h2><a href="/searchAppointment">Edit Appointment</a></h2>
+<h2><a href="/logout">Log out</a></h2>
+{{end}}
+</body>
+</html>

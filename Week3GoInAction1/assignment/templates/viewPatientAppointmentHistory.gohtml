@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Every Dental Clinic</title>
+</head>
+<body>
+<h1>View patient's appointment history</h1>
+{{template "greetings" .User}}
+
+{{if eq .PatientHistory ""}}
+Patient does not have any appointments
+<h4>Go to <a href="/admin">admin page</a></h4>
+{{end}}
+
+{{if and .User.Username (ne .PatientHistory "")}}
+{{.PatientHistory}}
+<h4>Go to <a href="/login">home page</a></h4>
+{{end}}
+</body>
+</html>

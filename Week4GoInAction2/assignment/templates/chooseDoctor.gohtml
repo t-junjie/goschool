@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Every Dental Clinic</title>
+</head>
+<body>
+<h1>View a doctors's upcoming appointments</h1>
+{{template "greetings" .User}}
+<!-- Display list of patients to choose from and redirect to patient appointment history page-->
+{{if eq .DoctorsName ""}}
+No doctors registered in system yet
+<h4><a href="/admin">Return<a> to admin page</h4>
+{{end}}
+
+{{if and (ne .DoctorsName "") (and .User.Username (eq .DoctorAppointments ""))}}
+{{.DoctorsName}}
+<br>
+
+Please enter the doctors's name to see the doctors's upcoming appointments.<br>
+
+<form method="post">
+    <label for ="docname">Doctor's Name:</label>
+    <input type="text" name="docname" placeholder="Doctor's Name"><br>
+    <input type="submit">
+</form>
+{{end}}
+</body>
+</html>

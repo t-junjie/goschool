@@ -1,0 +1,4 @@
+INFO: 2021/05/09 22:57:41 route.go:78: Initialized list of doctors
+INFO: 2021/05/09 23:28:02 route.go:78: Initialized list of doctors
+WARN: 2021/05/09 23:28:14 login.go:36: Invalid username and/or password.  This field(s) must be alphanumerical (a-z, A-Z, 0-9 and _).
+WARN: 2021/05/09 23:28:40 login.go:36: Invalid username and/or password.  This field(s) must be alphanumerical (a-z, A-Z, 0-9 and _).

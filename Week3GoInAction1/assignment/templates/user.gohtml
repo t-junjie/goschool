@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Every Dental Clinic: User Page</title>
+</head>
+<body>
+<h1>Welcome to the user page</h1>
+{{template "greetings" .User}}
+{{if .User.Username}}
+<h2><a href="/booking">Book a new appointment</a></h2>
+<h2><a href="/searchAvailableDoctors">Search for available dates</a></h2>
+<h2><a href="/searchAppointment">Edit my appointment</a></h2>
+<h2><a href="/viewPatientAppointmentHistory">View my appointments</a></h2>
+<h2><a href="/logout">Log out</a></h2>
+{{end}}
+</body>
+</html>

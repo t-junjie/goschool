@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Every Dental Clinic</title>
+</head>
+<body>
+<h1>View patient's appointment history</h1>
+{{template "greetings" .User}}
+<!-- Display list of patients to choose from and redirect to patient appointment history page-->
+{{if eq .PatientsName ""}}
+No patients registered in system yet
+<h4><a href="/admin">Return<a> to admin page</h4>
+{{end}}
+
+{{if and (ne .PatientsName "") (and .User.Username (eq .PatientHistory ""))}}
+{{.PatientsName}}
+<br>
+
+Please enter the patient's name to see the patient's appointment history.<br>
+
+<form method="post">
+    <label for ="patname">Patient's Name:</label>
+    <input type="text" name="patname" placeholder="James"><br>
+    <input type="submit">
+</form>
+{{end}}
+</body>
+</html>

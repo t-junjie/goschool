@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Every Dental Clinic</title>
+</head>
+<body>
+<h1>Search for available appointments</h1>
+{{template "greetings" .User}}
+
+<!-- check if logged in and form posted yet-->
+
+{{if eq .DoctorsAvailability ""}}
+No doctors are available on this date.
+{{end}}
+
+{{if and (ne .DoctorsAvailability "") (and .User.Username (eq .DoctorAvailability ""))}}
+
+{{.DoctorsAvailability}}
+<br>
+
+Please enter the doctor's name to see the doctor's available time slots.<br>
+
+<form method="post">
+    <label for ="docname">Doctor's Name:</label>
+    <input type="text" name="docname" placeholder="ALAN CHEUNG"><br>
+    <input type="submit">
+</form>
+{{end}}
+
+
+{{if (and .User.Username (ne .DoctorAvailability ""))}}
+{{.DoctorAvailability}}
+<h4>Go to <a href="/home">user page</a> or <a href="/booking">booking page</a></h4>
+{{end }}
+
+</body>
+<!--Show availaibility if form submitted-->
+</html>

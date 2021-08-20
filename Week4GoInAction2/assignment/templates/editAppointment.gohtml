@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Every Dental Clinic</title>
+</head>
+<body>
+<h1>Edit appointment</h1>
+{{template "greetings" .User}}
+
+{{if and .User.Username (not .BookingStatus)}}
+<h4>{{.PatientName}} has made the following appointment(s).</h4>
+{{.PatientHistory}}
+<h4>Which appointment would you like to change?</h4>
+
+<form method="post" autocomplete="off">
+
+    <label for ="fromDate">Current Appointment Date:</label>
+    <input type="text" name="fromDate" placeholder="YYYYMMDD"><br>
+
+    <label for ="fromTime">Current Appointment Time:</label>
+    <input type="text" name="fromTime" placeholder="hhmm"><br>
+
+    <label for ="fromDoctor">Name of doctor {{.PatientName}} currently has an appointment with:</label>
+    <input type="text" name="fromDoctor" placeholder="Current Doctor's Name"><br>
+
+    <label for ="toDate">Desired Appointment Date:</label>
+    <input type="text" name="toDate" placeholder="YYYYMMDD"><br>
+
+    <label for ="toTime">Desired Appointment Time:</label>
+    <input type="text" name="toTime" placeholder="hhmm"><br>
+
+    <label for ="toDoctor">Name of doctor whom you would like to book an appointment with:</label>
+    <input type="text" name="toDoctor" placeholder="Doctor's Name"><br>
+
+    <input type="submit">
+</form>
+{{end}}
+{{if and .User.Username .BookingStatus}}
+
+Appointment updated
+<br>
+<h4>Go to <a href="/login">home page</a></h4>
+
+{{end}}
+</body>
+</html>

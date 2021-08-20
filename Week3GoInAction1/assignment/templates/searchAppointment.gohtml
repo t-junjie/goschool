@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Every Dental Clinic</title>
+</head>
+<body>
+<h1>Search appointments</h1>
+{{template "greetings" .User}}
+<!-- check if logged in and form not posted yet-->
+{{if and (eq .User.Username "admin") (eq .PatientsName "")}}
+No patients registered in system yet
+<h4><a href="/admin">Return<a> to admin page</h4>
+{{end}}
+
+{{if and (eq .User.Username "admin") (ne .PatientsName "")}}
+</h4>Please select one of patients below to look up their appointments</h4><br>
+{{.PatientsName}}
+<br>
+<form method="post">
+
+    <label for ="patname">Patient name:</label>
+    <input type="text" name="patname" placeholder="JAMES"><br>
+
+    <input type="submit">
+</form>
+{{end}}
+
+{{if ne .User.Username "admin"}}
+</h4>Please enter your name</h4>
+
+<form method="post">
+
+    <label for ="patname">Your Name:</label>
+    <input type="text" name="patname" placeholder="JAMES"><br>
+
+    <input type="submit">
+</form>
+
+{{end}}
+</body>
+</html>

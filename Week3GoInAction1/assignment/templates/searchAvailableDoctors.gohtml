@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Every Dental Clinic</title>
+</head>
+
+<body>
+<h1>Search for available appointments</h1>
+{{template "greetings" .User}}
+<!-- check if logged in and form not posted yet-->
+{{if .User.Username }}
+Please enter the date to check the doctors' availability. <br>
+(If no doctors are available, nothing will be displayed.) <br><br>
+
+Note: <br>
+You may make a booking in advance for appointments next week til the week after. <br>
+We are closed on weekends.<br>
+e.g. If today's date is 20210405, only 20210412 - 20210419 will be made available. <br><br>
+
+<form method="post">
+    <label for ="datetime">Desired Appointment Date:</label>
+    <input type="text" name="datetime" placeholder="YYYYMMDD"><br>
+    <input type="submit">
+</form>
+{{end}}
+
+</body>
+</html>

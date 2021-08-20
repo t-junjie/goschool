@@ -1,0 +1,8 @@
+# Ignore everything
+*/*
+
+# Except for the assignment directories
+!*/assignment/
+!*/assignment/*
+!*/assignment/*/*
+
